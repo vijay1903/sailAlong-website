@@ -1,0 +1,62 @@
+.img-responsive {
+	max-width:100%;
+}
+.thumbnail .description {
+    color: #7f7f7f;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 16px;
+}
+.icon {
+    width: 20%;
+}
+
+/* thumbnail {
+  margin-bottom: -4px;
+} */
+.box {
+    transition: 0.3s
+  }
+.box:hover {
+    box-shadow: 0 4px 8px 0 rgba(43, 255, 0, 0.603), 0 6px 20px 0 rgba(9, 255, 1, 0.644)
+  }
+
+.box {
+    padding: 25px 7% 0;
+    margin-bottom : 5px;
+    text-align: center;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19)
+}
+.box h2 {
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    margin-bottom: 15px;
+}
+.box a{
+    margin: 3px;
+    margin-bottom: 5px;
+}
+.box p {
+    padding: 0px;
+    font-size: 12px;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+.top-left {
+    color: white;
+    position: absolute;
+    top: 16px;
+    left: 28px;
+}
+.dropdown:hover>.dropdown-menu {
+    display: block;
+  }
+  
+.form-control-manual {
+    margin : 10px;
+}

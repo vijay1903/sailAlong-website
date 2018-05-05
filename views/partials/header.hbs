@@ -1,0 +1,68 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="/"><i class="fas fa-ship"></i> Sail Along</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/"><i class="fas fa-home"></i> Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-list-ul"></i> Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-header">By Length</a>
+          <a class="dropdown-item" href="#">50' or less</a>
+          <a class="dropdown-item" href="#">50' - 60'</a>
+          <a class="dropdown-item" href="#">60' - 70'</a>
+          <a class="dropdown-item" href="#">70' or more</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-header">By type</a>
+          <a class="dropdown-item" href="#">Yacht</a>
+          <a class="dropdown-item" href="#">Ship</a>
+          <a class="dropdown-item" href="#">Cruise</a>
+          <a class="dropdown-item" href="#">Boat</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-header">By age</a>
+          <a class="dropdown-item" href="#">0 - 1 years</a>
+          <a class="dropdown-item" href="#">1 - 3 years</a>
+          <a class="dropdown-item" href="#">3 - 5 years</a>
+          <a class="dropdown-item" href="#">5 years or more</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about"><i class="fas fa-info-circle"></i> About</a>
+      </li>
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action ='/search' method="get" role="search">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+    </form>&nbsp
+    <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item dropdown">
+        {{# if login }}
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>
+          Your Account
+        </a>
+        <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/shopping-cart/"><i class="fa fa-shopping-cart"></i> Your Cart <span class="badge">{{session.cart.totalQty}}</span></a></li>
+              <li><a class="dropdown-item" href="/user/profile"><i class="fas fa-user-circle"></i> Profile</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a class="dropdown-item" href="/user/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+          {{ else }}
+          <li><a class="btn btn-outline-success my-2 my-sm-0" href="/user/signup" id="signup" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-plus"></i>
+          Sign Up</a>&nbsp
+          </li>
+          <li><a class="btn btn-outline-success my-2 my-sm-0" href="/user/signin" id="signin" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>
+          Sign In</a>
+          </li>
+          {{/if}}
+      </li>
+    </ul>
+  </div>
+</nav>
