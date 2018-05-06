@@ -26,7 +26,8 @@ var mongooseRedisCache = require("mongoose-redis-cache");
 
 // mongoose.connect('ec2-18-221-187-10.us-east-2.compute.amazonaws.com:27017/local');
 // ec2-18-221-187-10.us-east-2.compute.amazonaws.com
-mongoose.connect('MongoDB://localhost:27017/shopping');
+//mongoose.connect('MongoDB://localhost:27017/shopping');
+mongoose.connect('mongodb://vijayv:12345678@ds157682.mlab.com:57682/sail-along-mongodb');
 require('./config/passport');
 
 // view engine setup

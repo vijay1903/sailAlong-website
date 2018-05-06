@@ -6,6 +6,7 @@ var Cart = require('../models/cart');
 
 var Product = require('../models/product');
 var Order = require('../models/order');
+var elasticsearch = require('elasticsearch');
 
 //Redis part starts
 // ----------------------------------------------------------
@@ -35,23 +36,28 @@ var Order = require('../models/order');
 // });
 // module.exports = mongoose.model("RadisProduct",redisSchema);
 
-//    var client = new elasticsearch.Client({
-//         accessKeyId: 'AKIAJW3PGOZPG4F5HYSA',
-//         secretAccessKey: '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',
-//         service: 'es',
-//         region: 'US East (N. Virginia)',
-//         host: 'search-bigdata-hcq6bnbgrsciuk2ea5tp2akrla.us-east-1.es.amazonaws.com'
-//     });
-// client.ping({
-//     // ping usually has a 3000ms timeout
-//     requestTimeout: 100000
-// }, function (error) {
-//     if (error) {
-//         console.trace('elasticsearch cluster is down!');
-//     } else {
-//         console.log('All is well');
-//     }
-// });
+
+var client = new elasticsearch.Client({
+    accessKeyId: 'AKIAJE67JPN77PDQVQDA',
+    secretAccessKey: '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',
+    service: 'es',
+    region: 'US East (N. Virginia)',
+    host: 'search-sail-along-es-domain-statgg7qhbc6w6qjn4ve3jufzq.us-east-2.es.amazonaws.com'
+});
+client.ping({
+// ping usually has a 3000ms timeout
+requestTimeout: 100000
+}, function (error) {
+if (error) {
+    console.trace('elasticsearch cluster is down!');
+} else {
+    console.log('All is well');
+}
+});
+
+
+
+
 
 // ---------------------------------------------------
 // Redis part ends
@@ -229,25 +235,25 @@ router.get('/search',function(req,response,next){
     var perPage = 6;
     // console.log("Hello there");
     var userQuery = req.query['query'];
-    console.log(userQuery);
+    console.log("hello there,"+userQuery);
     var searchParams = {
-        index: 'products',
+        index: 'boat',
         from: (pageNum - 1) * perPage,
         size: perPage,
-        type: 'Yacht',
+        type: 'default',
         body: {
             query: {
                 multi_match: {
                //match: { "model": userQuery }
-                    fields:  ["boatType"],
+                    fields:  ["title","boatType","year"],
                     query:     userQuery,
-
+                    // fuzziness : "AUTO"
                 }
             }
         }
 };
 
-
+console.log("heelo 2222"+searchParams);
     client.search(searchParams, function (err, res) {
         if (err) {
             // handle error
@@ -266,7 +272,7 @@ router.get('/search',function(req,response,next){
             //console.log("reached productchunks")
         }
 
-        response.render('shop/index', {title: 'CarDekho',
+        response.render('shop/index', {title: 'Sail Along',
             products: productChunks
         });
     });
