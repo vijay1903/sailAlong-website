@@ -38,8 +38,8 @@ module.exports = mongoose.model("RadisProduct",redisSchema);
 
 
 var client = new elasticsearch.Client({
-    accessKeyId: 'AKIAJE67JPN77PDQVQDA',
-    secretAccessKey: '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',
+    accessKeyId: '********',
+    secretAccessKey: '*************',
     service: 'es',
     region: 'US East (N. Virginia)',
     host: 'search-sail-along-es-domain-statgg7qhbc6w6qjn4ve3jufzq.us-east-2.es.amazonaws.com'
