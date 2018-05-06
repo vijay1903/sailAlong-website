@@ -10,31 +10,31 @@ var elasticsearch = require('elasticsearch');
 
 //Redis part starts
 // ----------------------------------------------------------
-// var redis = require('redis');
-// var redisclient = redis.createClient(6379, "redis.1jsaeo.0001.use1.cache.amazonaws.com");
-// redisclient.auth('password', function (err) {
-//     if (err) throw err;
-// });
-// redisclient.on('connect', function() {
-//     console.log('Connected to Redis');
-// });
+ var redis = require('redis');
+ var redisclient = redis.createClient(6379, "sail-along-redis-001.pf1ci8.0001.use2.cache.amazonaws.com");
+ redisclient.auth('password', function (err) {
+     if (err) throw err;
+ });
+ redisclient.on('connect', function() {
+     console.log('Connected to Redis');
+ });
 
 /* For Redis : Start*/
-// var mongooseRedisCache = require("mongoose-redis-cache");
-// var mongoose = require('mongoose');
-// var Schema = mongoose.Schema;
-// var redisSchema = new Schema({
+ var mongooseRedisCache = require("mongoose-redis-cache");
+ var mongoose = require('mongoose');
+ var Schema = mongoose.Schema;
+ var redisSchema = new Schema({
 
-//     _id: {type : String,required:true},
-//     imagePath: {type: String, required: true},
-// 	title: {type: String, required: true},
-// 	boatType: {type: String, required: true},
-// 	length: {type: String, required: true},
-// 	year: {type: Number, required: true},
-// 	description: {type: String, required: true},
-// 	price: {type: Number, required: true}
-// });
-// module.exports = mongoose.model("RadisProduct",redisSchema);
+
+    imagePath: {type: String, required: true},
+ 	title: {type: String, required: true},
+ 	boatType: {type: String, required: true},
+ 	length: {type: String, required: true},
+ 	year: {type: Number, required: true},
+ 	description: {type: String, required: true},
+ 	price: {type: Number, required: true}
+ });
+module.exports = mongoose.model("RadisProduct",redisSchema);
 
 
 var client = new elasticsearch.Client({
@@ -245,9 +245,9 @@ router.get('/search',function(req,response,next){
             query: {
                 multi_match: {
                //match: { "model": userQuery }
-                    fields:  ["title","boatType","year"],
+                    fields:  ["title","boatType","year","length","description"],
                     query:     userQuery,
-                    // fuzziness : "AUTO"
+                    fuzziness : "AUTO"
                 }
             }
         }
