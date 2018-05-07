@@ -255,7 +255,7 @@ router.get('/search',function(req,response,next){
         }
 };
 
-console.log("heelo 2222"+searchParams);
+// console.log("heelo 2222"+searchParams);
     client.search(searchParams, function (err, res) {
         if (err) {
             // handle error
