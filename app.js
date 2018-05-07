@@ -24,18 +24,14 @@ var app = express();
 /* For Redis*/
 var mongooseRedisCache = require("mongoose-redis-cache");
 
-// mongoose.connect('ec2-18-221-187-10.us-east-2.compute.amazonaws.com:27017/local');
-// ec2-18-221-187-10.us-east-2.compute.amazonaws.com
-//mongoose.connect('MongoDB://localhost:27017/shopping');
-mongoose.connect('mongodb://vijayv:12345678@ds157682.mlab.com:57682/sail-along-mongodb');
+mongoose.connect('ec2-54-152-49-214.compute-1.amazonaws.com:27017/local');
 require('./config/passport');
 
 // view engine setup
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

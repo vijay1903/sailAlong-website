@@ -36,13 +36,17 @@ var elasticsearch = require('elasticsearch');
  });
 module.exports = mongoose.model("RadisProduct",redisSchema);
 
+// ---------------------------------------------------
+// Redis part ends
 
+// Elasticsearch part starts
+//----------------------------------------------------
 var client = new elasticsearch.Client({
-    accessKeyId: '********',
-    secretAccessKey: '*************',
+    accessKeyId: 'AKIAJWPDLM4XAYOR****',
+    secretAccessKey: 'yR9NKudjWtevikGWmlUe1hff1GcIeNvvfWyp****',
     service: 'es',
     region: 'US East (N. Virginia)',
-    host: 'search-sail-along-es-domain-statgg7qhbc6w6qjn4ve3jufzq.us-east-2.es.amazonaws.com'
+    host: 'search-sail-along-es-domain-noyhmk246ctoihkpmei4tu****.us-east-1.es.amazonaws.com'
 });
 client.ping({
 // ping usually has a 3000ms timeout
@@ -54,13 +58,11 @@ if (error) {
     console.log('All is well');
 }
 });
+//----------------------------------------------------
+//elasticsearch part end
 
 
 
-
-
-// ---------------------------------------------------
-// Redis part ends
 
 
 /* GET home page. */
