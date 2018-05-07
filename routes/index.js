@@ -11,7 +11,7 @@ var elasticsearch = require('elasticsearch');
 //Redis part starts
 // ----------------------------------------------------------
  var redis = require('redis');
- var redisclient = redis.createClient(6379, "sail-along-redis-001.pf1ci8.0001.use2.cache.amazonaws.com");
+ var redisclient = redis.createClient(6379, "sail-along-redis-001.pf****.0001.use2.cache.amazonaws.com");
  redisclient.auth('password', function (err) {
      if (err) throw err;
  });
