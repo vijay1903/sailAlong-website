@@ -12,8 +12,4 @@
   <li>ElaticCache(Redis) : To store the user session information and access it faster when the site is hosted online.</li>
   <li>CloudFront : It was the content delivery network for website in project. </li>
   </ul>
-  <h3> Here is a short video explaining the while project.</h3>
-  <video width="400" controls>
-    <source src="https://youtu.be/JeqKwsr5jNQ" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
+  <h3> Here is the link to a short video explaining the whole project : https://youtu.be/JeqKwsr5jNQ</h3>
