@@ -24,7 +24,7 @@ var app = express();
 /* For Redis*/
 var mongooseRedisCache = require("mongoose-redis-cache");
 
-mongoose.connect('ec2-54-152-49-214.compute-1.amazonaws.com:27017/local');
+mongoose.connect('ec2-54-152-**-***.compute-1.amazonaws.com:27017/local');
 require('./config/passport');
 
 // view engine setup
